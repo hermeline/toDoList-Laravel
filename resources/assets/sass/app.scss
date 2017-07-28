@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Crafty+Girls|Miss+Fajardose');
+
+body{
+  background-image: url('/img/bg.png');
+  background-size: contain;
+  background-repeat: repeat;
+  font-family: 'Crafty Girls', cursive;
+
+}
+
+.container{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+    font-family: 'Miss Fajardose', cursive;
+    font-weight: lighter;
+    font-size: 4.5em;
+    margin-left: 20%;
+}
+.titreAjout{
+  margin-left: 43%;
+  width: 200px;
+  height: 100px;
+  margin-top: -10px;
+  text-align: center;
+  /* Rotate div */
+  -ms-transform: rotate(-7deg); /* IE 9 */
+  -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+  transform: rotate(-7deg);
+}
+.titre{
+  height: 400px;
+  background: url('/img/bg-titre.png') no-repeat center center;
+  background-size: contain;
+  display: flex;
+  justify-content: flex-start;;
+  align-items: center;
+}
+
+.divCreate{
+  background: url('/img/postitCreate.png') no-repeat center left;
+  background-size: contain;
+  height: 300px;
+  width: 324px;
+  text-align: center;
+}
+.ajoutTache {
+    padding-top: 33%;
+    float: left;
+    margin-left: 37%;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+  }
+  .ajoutTache:hover{
+    color:#D9A0BF;
+  }
+.decoListe{
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.postit{
+  width: 350px;
+  height: 350px;
+  background: url('/img/postit.png') no-repeat center left;
+  background-size: contain;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: raw;
+  justify-content: space-around;
+  align-items: center;
+}
+.postit img{
+  width: 20%;
+}
+.categorie{
+  width: 100%;
+  text-align: center;
+}
+.edit{
+    position: relative;
+    display: inline-block;
+}
+
+.edit .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.edit:hover .tooltiptext {
+    visibility: visible;
+}
+
+.toDo, .done{
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.toDo{
+  color : green;
+}
+.done{
+  color : red;
+}
+.taskToDo, .taskDone{
+  height: 100px;
+  font-size: 2em;
+  margin-top: 30%;
+  width: 78%;
+  margin-bottom: 8%;
+}
+.taskToDo{
+  text-align: center;
+}
+.taskDone{
+  text-decoration: line-through;
+  color: grey;
+}
+
+.options{
+    text-align: right;
+    width: 57%;
+}
+button{
+  background-color: rgba(249,191,188, 0.9);
+  font-size: 1.8em;
+  border-radius: 24px 24px;
+  width: 100%;
+
+}
+.formCreate{
+  background-color: rgba(255,255,255, 0.8);
+  border-radius: 3px 3px;
+  width: 70%;
+  height: 200px;
+  text-align: center;
+  padding: 3%;
+  margin-left: auto;
+  margin-right: auto;
+
+    label{
+      font-size: 2em;
+      margin:5%;
+    }
+    button{
+        margin-top:10%;
+      }
+}
