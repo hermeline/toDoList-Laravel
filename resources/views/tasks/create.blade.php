@@ -4,7 +4,7 @@
 <div class="titre">
   <h1 class="titreAjout">Ajouter une tâche</h1>
 </div>
-    <form class="formCreate" action="save" method="post">
+    <form id="cre" class="formCreate" action="save" method="post">
       {{ csrf_field() }}
 
       <label for="titre">Titre</label>
@@ -18,7 +18,7 @@
         @endforeach
       </select>
 
-      <button type="submit" name="button">Envoyer</button>
+      <button type="submit" name="button" id="btn">Envoyer</button>
 
     </form>
     @endsection

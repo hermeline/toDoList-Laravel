@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('tasks/list', function(){
+
+  $tasks = App\Task::all();
+  return $tasks->toJson();
+});
+
+Route::post('tasks/save', 'TaskController@save');

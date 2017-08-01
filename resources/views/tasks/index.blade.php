@@ -1,6 +1,6 @@
     <div class="titre">
       <div class="divCreate">
-        <a class="ajoutTache" href="/index/create"> Ajouter </br> une </br> tâche</a>
+        <a class="ajoutTache" href="/tasks/create"> Ajouter </br> une </br> tâche</a>
       </div>
       <h1>Todo <br> List</h1>
     </div>
@@ -9,37 +9,25 @@
 
     @section('content')
 
-      <form class="formListe" action="done" method="post">
-        {{ csrf_field() }}
-        <ul class="decoListe">
+        <form id="cre" class="formCreate" method="post">
+          {{ csrf_field() }}
 
-          @foreach ($tasks as $task)
-            <div class="postit">
-              <div class="categorie">{{ $task -> category -> name }}</div>
+          <label for="titre">Titre</label>
+          <input type="text" name="titre" value="" id="titre">
 
-                @if (! $task->done )
-                    <div class="taskToDo">
-                        {{ $task -> titre }}
-                    </div>
-                    <div class="toDo">
-                      <input type="checkbox" name="done[]" value="{{ $task->id }}">
-                      To Do !
-                    </div>
-                @else
-                    <div class="taskDone">
-                        {{ $task -> titre }}
-                    </div>
-                    <div class="done">Done !</div>
-                @endif
-                <div class="options">
-                  <a class="edit" href="/index/{{ $task->id }}/edit"><img src="../img/edit.png" alt=""> <span class="tooltiptext"> Modifier </span> </a>
-                  <a class="edit" href="/{{ $task->id}}/destroy"><img src="../img/trash.png" alt=""> <span class="tooltiptext">Supprimer </span></a>
-                </div>
-
-            </div>
+          <label for="cat">Catégorie :</label>
+          <select id="cat" name="category_id">
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}">
+            {{ $category->name }} </option>
             @endforeach
+          </select>
 
-            <button type="submit" name="button">Done !</button>
+          <button type="submit" name="button" id="btn">Envoyer</button>
 
-          </form>
+        </form>
+
+        <div id="afficher">
+        </div>
+    
           @endsection

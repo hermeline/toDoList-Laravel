@@ -9,18 +9,15 @@ use App\Category;
 class TaskController extends Controller
 {
     public function index(){
-        $tasks = Task::all();
         $tasks = Task::orderBy('done', 'ASC')->get();
         $categories = Category::all();
 
         return view('tasks.index',  ['tasks' => $tasks, 'categories' => $categories]);
-
     }
 
     public function create(){
         $categories = Category::all();
-
-        return view('tasks.create', ['categories' => $categories]);
+        return view('tasks.index', ['categories' => $categories]);
     }
 
     public function save(Request $request){
@@ -30,7 +27,7 @@ class TaskController extends Controller
         $tasks->category_id = $request->input('category_id');
         $tasks->save();
 
-        return redirect('/index');
+        return redirect('/tasks');
     }
 
     public function show($id)
@@ -53,7 +50,7 @@ class TaskController extends Controller
       $tasks->done = $request->input('done');
       $tasks->save();
       // redirect back to the users list
-      return redirect('/index');
+      return redirect('/tasks');
   }
 
   public function done(Request $request)
@@ -64,7 +61,7 @@ class TaskController extends Controller
      $task->done = true;
      $task->save();
    }
-     return redirect('/index');
+     return redirect('/tasks');
  }
 
     public function destroy($id)
@@ -72,7 +69,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         $task->delete();
 
-        return redirect('/index');
+        return redirect('/tasks');
     }
 
 }

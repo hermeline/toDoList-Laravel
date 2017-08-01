@@ -1,22 +1,41 @@
+let $ = require('jquery');
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// Afficher données de la BDD avec requete AJAX
+let afficher = $("#afficher");
 
-require('./bootstrap');
+let formulaire = $('#cre');
 
-window.Vue = require('vue');
+function getTasks(){
+  $.get('/api/tasks/list', function(data){
+    let arr = JSON.parse(data);
+    let html = arr.map(function(tache){
+      return '<li>'+tache.titre+'</li>';
+    });
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+    afficher.html(html);
+  });
+}
 
-Vue.component('example', require('./components/Example.vue'));
+getTasks();
 
-const app = new Vue({
-    el: '#app'
-});
+function sendTasks(){
+
+  formulaire.on('submit', function(event){
+    event.preventDefault();
+
+    let titre = $('#titre').val();
+    let cate =$("#cat").val();
+    let toktok =$('[name="_token"]').val();
+    console.log(titre, cate, toktok);
+
+    $.ajax({
+      type: "POST",
+      url: "/api/tasks/save",
+      data: {titre, category_id:cate, _token:toktok},
+      success: function cool(){
+        console.log('ca marche');
+      }
+    });
+  });
+}
+sendTasks();
