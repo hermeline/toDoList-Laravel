@@ -8,7 +8,9 @@
     @extends('layout')
 
     @section('content')
+        <div id="react" class="bg">
 
+        </div>
         <form id="cre" class="formCreate" method="post">
           {{ csrf_field() }}
 
@@ -29,5 +31,5 @@
 
         <div id="afficher">
         </div>
-    
+
           @endsection

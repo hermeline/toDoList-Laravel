@@ -5,8 +5,14 @@
   font-family: 'Crafty Girls', cursive;
 }
 
-#afficher {
+#afficher,
+.bg {
   background-color: white;
+}
+
+.btnSupp {
+  width: 15%;
+  font-size: 1em;
 }
 
 .container {
